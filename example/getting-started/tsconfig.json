@@ -1,0 +1,13 @@
+// 타입스크립트 설정파일
+// 추가사항들은 타입스크립트 공식페이지 Tool 참고
+{
+  "compilerOptions": {
+    "allowJs": true,
+    //ts-check 와 비슷한기능
+    "checkJs": true,
+    //타입을 무조건 any라도 정의 해야함
+    "noImplicitAny": true
+  }
+}
+
+// @ts-check
