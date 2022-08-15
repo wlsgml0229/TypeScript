@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
-let todoItems: object[];
+// object 대신 더자세히 타입에 대한 정의를 추가
+let todoItems: {id: number; title: string; done: boolean}[];
 //any 타입은 형식을 확인할 수 없는 경우 
 // any 대신 구체적인 타입인 Array 적용
 
 // api
-function fetchTodoItems(): object[] {
+function fetchTodoItems(): {id: number; title: string; done: boolean}[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -20,7 +21,7 @@ function fetchTodos(): Array<object> {
 }
 
 //함수 반환값 없는경우 void 
-function addTodo(todo: object): void {
+function addTodo(todo: {id: number; title: string; done: boolean}): void {
   todoItems.push(todo);
 }
 
@@ -28,7 +29,7 @@ function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index: number, todo: object): void {
+function completeTodo(index: number, todo: {id: number; title: string; done: boolean}): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
@@ -39,11 +40,11 @@ function logFirstTodo(): object {
 }
 
 function showCompleted(): Array<object> {
-  return todoItems.filter((item: { done: boolean }) => item.done);
+  return todoItems.filter((item) => item.done);
 }
 
 // TODO: 아래 함수의 내용을 채워보세요. 아래 함수는 `addTodo()` 함수를 이용하여 2개의 새 할 일을 추가하는 함수입니다.
-function addTwoTodoItems() {
+function addTwoTodoItems(): void {
   // addTodo() 함수를 두 번 호출하여 todoItems에 새 할 일이 2개 추가되어야 합니다.
   const item1 = {
     id:4,
@@ -63,6 +64,7 @@ function log(): void {
   console.log(todoItems);
 }
 
+// todoItems 의 반환값이 정해져있기 때문에 fetchTodoItems 에도 정확한 타입을 설정
 todoItems = fetchTodoItems();
 addTwoTodoItems();
 log();
