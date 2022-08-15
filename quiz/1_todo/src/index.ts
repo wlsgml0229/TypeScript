@@ -1,11 +1,23 @@
 /* eslint-disable prettier/prettier */
-// object 대신 더자세히 타입에 대한 정의를 추가
-let todoItems: {id: number; title: string; done: boolean}[];
-//any 타입은 형식을 확인할 수 없는 경우 
-// any 대신 구체적인 타입인 Array 적용
+
+//타입을 따로 선언하는 방법
+// type Todo = {
+//   id: number;
+//   title: string;
+//   done: boolean;
+// }
+
+//인터페이스화 하여 사용
+interface Todo {
+  id: number;
+  title: string;
+  done: boolean;
+}
+
+let todoItems: Todo[];
 
 // api
-function fetchTodoItems(): {id: number; title: string; done: boolean}[] {
+function fetchTodoItems(): Todo[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -21,7 +33,7 @@ function fetchTodos(): Array<object> {
 }
 
 //함수 반환값 없는경우 void 
-function addTodo(todo: {id: number; title: string; done: boolean}): void {
+function addTodo(todo: Todo): void {
   todoItems.push(todo);
 }
 
@@ -29,7 +41,7 @@ function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index: number, todo: {id: number; title: string; done: boolean}): void {
+function completeTodo(index: number, todo: Todo): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
