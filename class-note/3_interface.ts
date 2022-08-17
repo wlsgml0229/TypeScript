@@ -68,10 +68,10 @@ let obj: StringRegexDictionary = {
 Object.keys(obj).forEach((value) => {})
 
 // 인터페이스의 확장
-interface Person {
-    name: string;
-    age: number;
-}
+// interface Person {
+//     name: string;
+//     age: number;
+// }
 
 //상속을 받아 확장이 가능
 interface Developer extends Person {
