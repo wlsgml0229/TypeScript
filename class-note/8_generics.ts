@@ -49,5 +49,18 @@
 
 
 
+//!! 제네릭 사용시 장점
+//각각정의 하는게 아니라 호출한 시점에 타입을 정의 
+// 타입추론을 하여 최종 반환값 까지 붙일수 있음
+function logText<T>(text: T):T {
+    console.log(text);
+    return text;
+}
+
+//반환값도 정상적 타입으로 string 나옴
+const abc = logText<string>('abc') 
+abc.split('')
+
+const login = logText<boolean>(true);
 
 
