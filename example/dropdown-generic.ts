@@ -1,33 +1,39 @@
-interface Email {
-  value: string;
+//제네릭을 적용함으로써 인터페이스를 공통적으로 사용하고, 두가지 타입을 커버함
+interface DropdownItem<T> {
+  value: T;
   selected: boolean;
 }
 
-const emails:Email[] = [
+// interface Email {
+//   value: string;
+//   selected: boolean;
+// }
+
+const emails:DropdownItem<string>[] = [
   { value: 'naver.com', selected: true },
   { value: 'gmail.com', selected: false },
   { value: 'hanmail.net', selected: false },
 ];
 
-interface ProductNumber {
-  value: number;
-  selected: boolean;
-}
+// interface ProductNumber {
+//   value: number;
+//   selected: boolean;
+// }
 
-interface TrueFalse {
-  value: boolean;
-  selected: boolean;
-}
+// interface TrueFalse {
+//   value: boolean;
+//   selected: boolean;
+// }
 
 // 타입이 어떤게 오던간에 유연하게 사용하려면 제네릭 활용해야함
 
-const numberOfProducts: ProductNumber[] = [
+const numberOfProducts: DropdownItem<number>[] = [
   { value: 1, selected: true },
   { value: 2, selected: false },
   { value: 3, selected: false },
 ];
 
-function createDropdownItem(item: Email | ProductNumber) {
+function createDropdownItem(item: DropdownItem<string> | DropdownItem<number>) {
   const option = document.createElement('option');
   option.value = item.value.toString();
   option.innerText = item.value.toString();
