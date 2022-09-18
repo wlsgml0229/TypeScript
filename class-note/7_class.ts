@@ -1,10 +1,16 @@
+// function Persion(name, age) {
+//     this.name = name
+//     this.age = age
+// }
+
 class Person {
+    //타입스크립트에서는 클래스의 멤버변수에도 타입선언을 해야한다.
     private name: string;
     public age: number;
     //읽기만 가능, 값변경 x
     readonly log: string;
 
-    constructor(name, age) {
+    constructor(name:string, age:number) {
         this.name = name;
         this.age = age;
     }
