@@ -89,5 +89,25 @@ logTextLength('hi')
 // logTextLength(10); //숫자라서 length 속성 x
 // logTextLength({ leng: 10 }) // err leng속성의 정의되어있지 않기 때문에 오류
 
+// 제네릭 타입 제한 3 - key of
+interface ShoppingItem {
+    name: string;
+    price: number;
+    stock: number;
+}
+//extends를 활용 (기존의 클래스나 인터페이스 확장)
+// 정의된 타입중 하나만 넘겨 받고 싶은경우 keyof 를 사용해서 타입 제한을 할 수 있음
+// ShoppingItem 키값만 들어갈 수 있음
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+    return itemOption;
+}
+//제네릭이기 떄문에 타입만 잘 맞춰주면 다 넣을 수 있음
+// getShoppingItemOption(10);
+// getShoppingItemOption<string>('a');
+
+getShoppingItemOption('name');
+getShoppingItemOption('price');
+
+
 
 
