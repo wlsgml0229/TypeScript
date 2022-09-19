@@ -63,4 +63,31 @@ abc.split('')
 
 const login = logText<boolean>(true);
 
+//제네릭의 타입 제한 (제네릭의 타입에 대한 힌트를 추가적으로 줄 수 있음)
+// 그냥 제네릭으로 받으면 length 가 인식 x 
+// 배열이라고 적어놓으면 타입 힌트를 좀 더 줘서 length에 접근 가능 
+// function logTextLength<T>(text: T[]): T[] {
+//     console.log(text.length)
+//     text.forEach(el => {
+//         console.log(el)
+//     })
+//     return text;
+// }
+// //하지만 string을 배열로 넣어줘야한다.
+// logTextLength<string>(['hi', 'abc']);
+
+// 제네릭의 타입제한 2 - 정의된 타입 이용하기
+interface LengthType {
+    length: number;
+}
+// 제네릭에 LengthType 이 포함되어있다고 선언
+function logTextLength<T extends LengthType>(text: T): T {
+    text.length;
+    return text;
+}
+logTextLength('hi')
+// logTextLength(10); //숫자라서 length 속성 x
+// logTextLength({ leng: 10 }) // err leng속성의 정의되어있지 않기 때문에 오류
+
+
 
