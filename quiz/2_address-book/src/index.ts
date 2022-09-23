@@ -118,6 +118,7 @@ class AddressBook {
   displayListByAddress(): string[] {
     return this.contacts.map(contact => contact.address);
   }
+
   /* ------------------------------------------------ */
 }
 
