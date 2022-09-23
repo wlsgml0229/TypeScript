@@ -27,4 +27,19 @@ if((tony as Developer).skill) {
     console.log(age);
 }
 
-//타입가드로 위의 코드를 줄여 나갈 수 있음
+//타입가드로 위의 코드를 줄여 나갈 수 있음 (is패턴 많이씀)
+// 반환 타입 인자 is Developer 타입?
+// return 값으로 target.skill 존재 -> Developer 타입이 됨
+// Developer 타입인지 판단
+function isDeveloper(target: Developer | Person): target is Developer {
+    return (target as Developer).skill !== undefined
+}
+
+//타입가드를 통해서 추론을 도와줌
+if (isDeveloper(tony)) {
+    //developer 라고 추정 -> .skill 제공
+    tony.skill
+} else {
+    // developer 아닌 Person의 타입이니까 -> .age 제공
+    tony.age
+}
