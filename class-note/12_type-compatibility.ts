@@ -41,6 +41,7 @@ sum = add;
 add = sum;
 
 // 제네릭 
+// 인터페이스 내부가 비어있어서 어떤값 (타입) 이 들어가도 호환 O
 interface Empty<T> {
     // ...
 }
@@ -56,7 +57,7 @@ interface NotEmpty<T> {
 let notempty1: NotEmpty<string>;
 let notempty2: NotEmpty<number>;
 
-//이미 선언되서 사용되었으면 구조적으로 달라져서 호환불가
+//이미 선언되서 사용되었으면 구조적으로 달라져서 호환 X
 notempty1 = notempty2;
 notempty2 = notempty1;
 
