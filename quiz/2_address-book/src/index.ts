@@ -1,24 +1,4 @@
-interface PhoneNumberDictionary {
-  //객체에 key 정의 하지않았을때 여러가지 키값 정의하는 방법 
-  [phone: string]: {
-    num: number;
-  };
-}
-
-interface Contact {
-  name: string;
-  address: string;
-  //
-  phones: PhoneNumberDictionary;
-}
-
-enum PhoneType {
-  //enum 속성정의 = 할당값 정의
-  Home = 'home',
-  office = 'office',
-  Studio = 'studio'
-}
-
+import { Contact, PhoneType } from './types'
 // api 묘사
 // TODO: 아래 함수의 반환 타입을 지정해보세요.
 // api 규격 정할떄 제네릭을 가장 많이씀
